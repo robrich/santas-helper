@@ -2,9 +2,14 @@
   'use strict';
 
   var app = angular.module('santasHelper')
-    .controller('AskController', ['$scope', 'firebaseWrap', 'color', function ($scope, firebaseWrap, color) {
+    .controller('AskController', ['$scope', 'firebaseWrap', 'color', '$state',function ($scope, firebaseWrap, color, $state) {
 
       $scope.data = firebaseWrap.data;
+      
+      $scope.onSanta = function(){
+        console.log('on santa click');
+        $state.go("santa");
+      }
 
       $scope.newAsk = function() {
         if (!$scope.username || !$scope.wish) {
