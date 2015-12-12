@@ -2,16 +2,27 @@
   'use strict';
 
   var app = angular.module('santasHelper')
-    .controller('AskController', ['$scope', 'firebaseWrap', 'color', '$state',function ($scope, firebaseWrap, color, $state) {
+    .controller('AskController', ['$scope', 'firebaseWrap', 'color', '$state', '$uibModal', function ($scope, firebaseWrap, color, $state, $uibModal) {
+
+      var modalInstance = $uibModal.open({
+        // animation: $scope.animationsEnabled,
+        templateUrl: 'app/ask/modal.html',
+        controller: 'AskModalController',
+        size: 'sm'
+      });
+
+      modalInstance.result.finally(function (selectedItem) {
+        $scope.selected = selectedItem;
+      });
 
       $scope.data = firebaseWrap.data;
-      
-      $scope.onSanta = function(){
+
+      $scope.onSanta = function () {
         console.log('on santa click');
         $state.go("santa");
-      }
+      };
 
-      $scope.newAsk = function() {
+      $scope.newAsk = function () {
         if (!$scope.username || !$scope.wish) {
           return; // don't ask for nothing
         }
@@ -24,6 +35,19 @@
         $scope.wish = '';
         $scope.message = 'Asking Santa ...';
       };
-  }]);
+    }])
+    .controller('AskModalController', function ($scope, $uibModalInstance) {
+      $scope.wish = {
+        status: ''
+      };
+
+      $scope.ok = function () {
+        $uibModalInstance.close();
+      };
+
+      $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+      };
+    });
 
 }());
