@@ -38,11 +38,26 @@
 	background-color: #D24A3C;
 	border-color: #D24A3C;
 }
+.btn-gold {
+	color: #fff;
+	background-color: #C5A436;
+	border-color: #C5A436;
+	text-shadow: 1px 1px 3px #444;
+}
+.btn-gold:hover {
+	color: #fff;
+	background-color: #DCAB0A;
+	border-color: #DCAB0A;
+}
 
 
 /* MODAL */
 .modal-body img {
 	max-width: 100%;
+}
+.modal-header {
+	font-family: 'Mountains of Christmas', cursive;
+	font-weight: 700;
 }
 
 
@@ -52,6 +67,12 @@
 }
 .santas-list .present {
 	box-shadow: 0 0 4px #333;
+}
+
+
+/* SPARKLES */
+.sparkle {
+  transition: all 0.25s ease;
 }
 
 
