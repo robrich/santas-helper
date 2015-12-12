@@ -23,7 +23,7 @@
       $scope.login = function () {
         $uibModal.open({
           // animation: $scope.animationsEnabled,
-          template: '<div class="modal-body"><input type="text" ng-model="user.password" placeholder="password"><button class="btn btn-primary" type="button" ng-click="ok()">Login</button></div>',
+          templateUrl: 'app/ask/login.html',
           controller: function ($scope, $uibModalInstance) {
             $scope.user = {
               password: null
