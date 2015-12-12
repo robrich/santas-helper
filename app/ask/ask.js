@@ -33,7 +33,8 @@
           name: $scope.username,
           wish: $scope.wish,
           state: 'unopened',
-          color: color.getRandomColor()
+          color: color.getRandomColor(),
+          answer: ''
         });
         $scope.wish = '';
         $scope.message = 'Asking Santa ...';
