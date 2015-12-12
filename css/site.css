@@ -8,7 +8,8 @@
 .blue { color: blue; }
 .green { color: #1A3112; }
 .gold { color: #C5A436; }
-.white { color; #fff; }
+.white { color: #fff; }
+.black { color: #000; }
 
 .bg-blue { background-color: blue; }
 .bg-red { background-color: #992114; }
@@ -22,7 +23,13 @@
 }
 
 
-
+/* SANTAS LIST */
+.santas-list button {
+	color: #000;
+}
+.santas-list .present {
+	box-shadow: 0 0 4px #333;
+}
 
 
 /*
