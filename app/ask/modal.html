@@ -3,8 +3,8 @@
         <h1 class="text-center">Santa says you've been naughty</h1>
     </div>
     <div class="modal-body text-center">
-        <img src="img/angry-santa.png" alt="angry santa">
-        <img style="width: 200px;" src="img/lump-of-coal.png" alt="coal">
+        <img style="width:49%;" src="img/angry-santa.png" alt="angry santa">
+        <img style="width:49%;" src="img/lump-of-coal.png" alt="coal">
     </div>
     <div class="modal-footer">
         <button class="btn btn-black btn-block" type="button" ng-click="ok()">I'M GETTING NUTTIN' FOR CHRISTMAS!!!</button>
@@ -16,15 +16,16 @@
 
 <div ng-if="wish.answer === 'nice'" class="nice">
     <div class="modal-header">
-        <h1 class="text-center">Santa says you've been NICE!!!</h1>
+        <h1 class="text-center red">Santa says you've been NICE!!!</h1>
     </div>
     <div class="modal-body">
-        <p>Santa has partnered with Amazon to bring you <b><em>Santazon!!!</em></b> That means you'll be getting your gift in 2-3 business days (restrictions apply) wihtout needing to wait until Christmas!!!</p>
-        <span class="img"><img src="/img/santa.png" alt="santa yes"></span>
-        <img src="/img/yes.gif" style="width: 50%;" alt="YES"> 
+        <img style="width:49%;" src="/img/happy-santa.png" alt="santa yes">
+        <img style="width:49%;" src="/img/present-closed.png" alt="present">
+        <p style="margin-top:25px;">Santa has partnered with Amazon to bring you <b><em>Santazon!!!</em></b> That means you'll be getting your gift in 2-3 business days (restrictions apply) wihtout needing to wait until Christmas!!!</p>
+        
     </div>
     <div class="modal-footer">
-        <button class="btn btn-gold btn-block sparkle rainbow" type="button" ng-click="ok()">I'M SO SPECIAL... THANK YOU SANTA!!!</button>
+        <button class="btn btn-red btn-block sparkle rainbow" type="button" ng-click="ok()">I'M SO SPECIAL... THANK YOU SANTA!!!</button>
         <!-- <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button> -->
     </div>
 </div>

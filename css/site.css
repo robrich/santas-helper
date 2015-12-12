@@ -7,6 +7,10 @@
 	margin: 0 auto;
 }
 
+img {
+	max-width: 100%;
+}
+
 /* COLORS */
 
 .red { color: #992114; }
@@ -50,6 +54,17 @@
 	text-shadow: 1px 1px 3px #444;
 }
 .btn-gold:hover {
+	color: #fff;
+	background-color: #DCAB0A;
+	border-color: #DCAB0A;
+}
+.btn-green {
+	color: #fff;
+	background-color: #1A3112;
+	border-color: #1A3112;
+	text-shadow: 1px 1px 3px #444;
+}
+.btn-green:hover {
 	color: #fff;
 	background-color: #DCAB0A;
 	border-color: #DCAB0A;
