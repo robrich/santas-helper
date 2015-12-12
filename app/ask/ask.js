@@ -4,15 +4,15 @@
   var app = angular.module('santasHelper')
     .controller('AskController', ['$scope', 'firebaseWrap', 'color', '$state', '$uibModal', function ($scope, firebaseWrap, color, $state, $uibModal) {
 
-      $scope.openModal = function() {
+      $scope.openModal = function () {
         var modalInstance = $uibModal.open({
           // animation: $scope.animationsEnabled,
           templateUrl: 'app/ask/modal.html',
           controller: 'AskModalController',
           size: 'lg',
           resolve: {
-            wish: function() {
-              return 'nice';
+            wish: function () {
+              return $scope.wish
             }
           }
         });
@@ -48,7 +48,7 @@
           },
           size: 'sm'
         }).result.then(function (pass) {
-          if(pass === 'password') {
+          if (pass === 'password') {
             $state.go('santa');
           } else {
             alert('Sorry we can\'t login you in! :(');
@@ -66,9 +66,16 @@
           // yeah, this is awful
           var id = ref.key();
           var itm = $scope.data.$getRecord(id);
+
           $scope.wish = itm;
         });
       };
+
+      $scope.$watch('wish', function () {
+        if ($scope.wish && $scope.wish.state && $scope.wish.state === 'answered' && $scope.wish.answer) {
+          $scope.openModal();
+        }
+      }, true);
     }])
     .controller('AskModalController', function ($scope, $uibModalInstance, wish) {
       $scope.wish = wish;
@@ -81,5 +88,4 @@
         $uibModalInstance.dismiss('cancel');
       };
     });
-
 }());
