@@ -1,7 +1,7 @@
 <h1>Santa Dashboard</h1>
 
-<ul>
-  <li ng-repeat="message in data">
+<ul class="santas-list">
+  <li ng-repeat="message in data" class="white">
     <div class="present bg-{{message.color}} col-sm-6">
       <b>{{message.name}}</b><br />
       {{message.wish}}
@@ -9,8 +9,8 @@
         <button ng-click="openMessage(message)">open</button>
       </span>
       <span ng-show="message.state == 'opened'">
-        <button ng-click="setStatus(message, 'nice')">nice</button>
-        <button ng-click="setStatus(message, 'naughty')">naughty</button>
+        <button ng-click="setStatus(message, 'nice')" >nice</button>
+        <button ng-click="setStatus(message, 'naughty')" >naughty</button>
       </span>
       <button ng-click="removeMessage(message)">X</button>
     </div>

@@ -16,9 +16,11 @@
         <input type="text" class="form-control" id="wish" ng-model="wish.wish">
       </div>
       <button type="submit">Ask</button>
-      <div>{{message}}</div>
     </form>
 
+    <div ng-show="wish.state == 'unopened' || wish.state == 'opened'">
+      Asking santa
+    </div>
     <div ng-show="wish.state == 'answered'">
       <div ng-show="wish.answer == 'nice'">
         Santa says you're nice.  You get the wish.
