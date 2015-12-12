@@ -7,7 +7,11 @@
       $scope.data = firebaseWrap.data;
 
       $scope.openMessage = function (message) {
-      	message.state = 'opened';
+        if (message.state === 'opened') {
+          message.state = 'unopened';
+        } else {
+          message.state = 'opened';
+        }
         $scope.data.$save(message);
       }
 

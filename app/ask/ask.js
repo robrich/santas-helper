@@ -2,7 +2,7 @@
   'use strict';
 
   var app = angular.module('santasHelper')
-    .controller('AskController', ['$scope', 'firebaseWrap', 'color', '$state', '$uibModal', function ($scope, firebaseWrap, color, $state, $uibModal) {
+    .controller('AskController', ['$scope', 'firebaseWrap', 'color', 'location', '$state', '$uibModal', function ($scope, firebaseWrap, color, location, $state, $uibModal) {
 
       $scope.openModal = function () {
         var modalInstance = $uibModal.open({
@@ -50,6 +50,7 @@
       $scope.wish = {
         state: 'unasked',
         color: color.getRandomColor(),
+        location: location.getRandomLocation(),
         answer: ''
       };
 
@@ -86,14 +87,23 @@
           return; // don't ask for nothing
         }
         $scope.wish.state = 'unopened';
-        $scope.data.$add($scope.wish).then(function (ref) {
-          // get the firebase object so we can watch the changes
-          // yeah, this is awful
-          var id = ref.key();
-          var itm = $scope.data.$getRecord(id);
+        $scope.wish.answer = '';
+        $scope.color = color.getRandomColor();
+        $scope.location = location.getRandomLocation();
+        if ($scope.data['$id']) {
+          // update
+          $scope.data.$save($scope.wish);
+        } else {
+          // add
+          $scope.data.$add($scope.wish).then(function (ref) {
+            // get the firebase object so we can watch the changes
+            // yeah, this is awful
+            var id = ref.key();
+            var itm = $scope.data.$getRecord(id);
 
-          $scope.wish = itm;
-        });
+            $scope.wish = itm;
+          });
+        }
       };
 
       $scope.$watch('wish', function () {
