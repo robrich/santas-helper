@@ -4,21 +4,24 @@
   var app = angular.module('santasHelper')
     .controller('AskController', ['$scope', 'firebaseWrap', 'color', '$state', '$uibModal', function ($scope, firebaseWrap, color, $state, $uibModal) {
 
-      var modalInstance = $uibModal.open({
-        // animation: $scope.animationsEnabled,
-        templateUrl: 'app/ask/modal.html',
-        controller: 'AskModalController',
-        size: 'sm'
-      });
+      $scope.openModal = function() {
+        var modalInstance = $uibModal.open({
+          // animation: $scope.animationsEnabled,
+          templateUrl: 'app/ask/modal.html',
+          controller: 'AskModalController',
+          size: 'lg'
+        });
 
-      modalInstance.result.finally(function (selectedItem) {
-        $scope.selected = selectedItem;
-      });
+        modalInstance.result.finally(function (selectedItem) {
+          $scope.selected = selectedItem;
+        });
+      }
+      
 
       $scope.data = firebaseWrap.data;
 
-      $scope.onSanta = function () {
-        console.log('on santa click');
+      $scope.login = function () {
+
         $state.go("santa");
       };
 
@@ -30,7 +33,8 @@
           name: $scope.username,
           wish: $scope.wish,
           state: 'unopened',
-          color: color.getRandomColor()
+          color: color.getRandomColor(),
+          answer: ''
         });
         $scope.wish = '';
         $scope.message = 'Asking Santa ...';

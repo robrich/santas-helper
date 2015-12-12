@@ -6,6 +6,22 @@
 
       $scope.data = firebaseWrap.data;
 
+      $scope.openMessage = function (message) {
+      	message.state = 'opened';
+        $scope.data.$save(message);
+      }
+
+      $scope.setStatus = function (message, answer) {
+        message.answer = answer;
+        message.state = 'answered';
+        $scope.data.$save(message);
+      };
+
+      $scope.removeMessage = function (message) {
+        data.$remove(message);
+      };
+
     }]);
+
 
 }());

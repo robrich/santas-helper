@@ -2,16 +2,22 @@
     <h3 class="modal-title">I'm a modal!</h3>
 </div>
 <div class="modal-body">
+
     <div ng-if="wish.status === 'accepted'">
         accepted
     </div>
 
 
     <div ng-if="wish.status === 'accepted'">
-        accepted
+        <div class="accepted">
+            <h1>Santa says you'be been good, so here's your gift!!!</h1>
+            <p>Santa has partnered with Amazon to bring you <b><em>Santazon!!!</em></b> That means you'll be getting your gift in 2-3 business days (restrictions apply) wihtout needing to wait until Christmas!!!</p>
+            <img src="/img/yes.gif" alt="YES">
+        </div>
     </div>
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-warning" type="button" ng-click="openModal()">Open Modal</button>
 </div>
