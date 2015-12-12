@@ -17,8 +17,8 @@
 
       $scope.data = firebaseWrap.data;
 
-      $scope.onSanta = function () {
-        console.log('on santa click');
+      $scope.login = function () {
+
         $state.go("santa");
       };
 
