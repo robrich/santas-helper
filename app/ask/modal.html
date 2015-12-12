@@ -1,4 +1,4 @@
-<div ng-if="wish === 'naughty'" class="naughty">
+<div ng-if="wish.answer === 'naughty'" class="naughty">
     <div class="modal-header">
         <h1 class="text-center">Santa says you've been naughty</h1>
     </div>
@@ -14,14 +14,14 @@
 
 
 
-<div ng-if="wish === 'nice'" class="nice">
+<div ng-if="wish.answer === 'nice'" class="nice">
     <div class="modal-header">
         <h1 class="text-center">Santa says you've been NICE!!!</h1>
     </div>
-    <div class="modal-body"> 
+    <div class="modal-body">
         <p>Santa has partnered with Amazon to bring you <b><em>Santazon!!!</em></b> That means you'll be getting your gift in 2-3 business days (restrictions apply) wihtout needing to wait until Christmas!!!</p>
         <img src="/img/santa.png" alt="santa yes">
-        <img src="/img/yes.gif" style="width: 50%;" alt="YES"> 
+        <img src="/img/yes.gif" style="width: 50%;" alt="YES">
     </div>
     <div class="modal-footer">
         <button class="btn btn-red btn-block" type="button" ng-click="ok()">I'M SO SPECIAL... THANK YOU SANTA!!!</button>
