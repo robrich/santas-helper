@@ -21,14 +21,6 @@
     <div ng-show="wish.state == 'unopened' || wish.state == 'opened'">
       Asking santa
     </div>
-    <div ng-show="wish.state == 'answered'">
-      <div ng-show="wish.answer == 'nice'">
-        Santa says you're nice.  You get the wish.
-      </div>
-      <div ng-show="wish.answer == 'naughty'">
-        Santa says you're naughty.  You get coal.
-      </div>
-    </div>
 
     <small class="debug" ng-show="false"><pre>{{wish | json}}</pre></small>
 
