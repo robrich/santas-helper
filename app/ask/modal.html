@@ -1,23 +1,28 @@
-<div class="modal-header">
-    <h3 class="modal-title">I'm a modal!</h3>
-</div>
-<div class="modal-body">
-
-    <div ng-if="wish.status === 'accepted'">
-        accepted
+<div ng-if="wish === 'naughty'" class="naughty">
+    <div class="modal-header">
+        <h1>Santa says you've been naughty</h1>
     </div>
-
-
-    <div ng-if="wish.status === 'accepted'">
-        <div class="accepted">
-            <h1>Santa says you'be been good, so here's your gift!!!</h1>
-            <p>Santa has partnered with Amazon to bring you <b><em>Santazon!!!</em></b> That means you'll be getting your gift in 2-3 business days (restrictions apply) wihtout needing to wait until Christmas!!!</p>
-            <img src="/img/yes.gif" alt="YES">
-        </div>
+    <div class="modal-body text-center">
+        <img src="img/lump-of-coal.png" alt="coal">
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">BOO HOO!</button>
+        <!-- <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button> -->
     </div>
 </div>
-<div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-    <button class="btn btn-warning" type="button" ng-click="openModal()">Open Modal</button>
+
+
+
+<div ng-if="wish === 'nice'" class="nice">
+    <div class="modal-header text-center">
+        <h1>Santa says you'be been good, so here's your gift!!!</h1>
+    </div>
+    <div class="modal-body"> 
+        <p>Santa has partnered with Amazon to bring you <b><em>Santazon!!!</em></b> That means you'll be getting your gift in 2-3 business days (restrictions apply) wihtout needing to wait until Christmas!!!</p>
+        <img src="/img/yes.gif" alt="YES"> 
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">THANK YOU SANTA!!!</button>
+        <!-- <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button> -->
+    </div>
 </div>

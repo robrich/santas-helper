@@ -9,7 +9,7 @@
           .state('main', {
             abstract: true,
             url: '/',
-            template: '<div ui-view></div>'
+            template: '<div ui-view class="container"></div>'
           })
           .state('ask', {
             url: '',
