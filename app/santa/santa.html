@@ -1,23 +1,25 @@
 <h1>Santa Dashboard</h1>
 
+<div class="map">
+
 <ul class="santas-list">
-  <li ng-repeat="message in data" class="white" ng-hide="message.state === 'answered'">
-    <div class="present bg-{{message.color}} col-sm-6">
-      <b>{{message.name}}</b><br />
-      {{message.wish}}
-      <span ng-show="message.state != 'opened'">
-        <button ng-click="openMessage(message)">open</button>
-      </span>
-      <span ng-show="message.state == 'opened'">
-        <button ng-click="setStatus(message, 'nice')" >nice</button>
-        <button ng-click="setStatus(message, 'naughty')" >naughty</button>
-      </span>
-      <button ng-click="removeMessage(message)">X</button>
+  <li class="wish" ng-repeat="message in data" class="white" ng-hide="message.state === 'answered' || message.state === 'unasked'">
+    <div class="marker">
+      <img src="img/present.png" ng-click="openMessage(message)" />
     </div>
-    <div class="col-sm-6 debug"><small><pre>{{message | json}}</pre></small></div>
+    <div class="panel panel-success panel-{{message.color}}" ng-show="message.state === 'opened'">
+      <div class="panel-heading">
+        {{message.name}} wants {{message.wish}}
+        <button class="debug btn btn-default pull-right delete-btn" ng-click="removeMessage(message)">X</button>
+      </div>
+      <div class="panel-body">
+        <button class="btn btn-success" ng-click="setStatus(message, 'nice')" >nice</button>
+        <button class="btn btn-danger" ng-click="setStatus(message, 'naughty')" >naughty</button>
+        <div ng-show="false" class="debug"><small><pre>{{message | json}}</pre></small></div>
+      </div>
+    </div>
   </li>
 </ul>
 
-<div class="map">
   <img src="img/us-map.jpg" />
 </div>

@@ -1,5 +1,5 @@
 .ng-cloak {
-	display: none;
+  display: none;
 }
 
 .block-center {
@@ -16,11 +16,6 @@
 .white { color: #fff; }
 .black { color: #000; }
 
-.bg-blue { background-color: blue; }
-.bg-red { background-color: #992114; }
-.bg-green { background-color: #1A3112; }
-.bg-gold { background-color: #C5A436; }
-
 
 /* BUTTONS */
 .btn-black {
@@ -29,19 +24,19 @@
   border-color: #000;
 }
 .btn-black:hover {
-	color: #fff;
-	background-color: #333;
-	border-color: #333;
+  color: #fff;
+  background-color: #333;
+  border-color: #333;
 }
 .btn-red {
-	color: #fff;
-	background-color: #992114;
-	border-color: #992114;
+  color: #fff;
+  background-color: #992114;
+  border-color: #992114;
 }
 .btn-red:hover {
-	color: #fff;
-	background-color: #D24A3C;
-	border-color: #D24A3C;
+  color: #fff;
+  background-color: #D24A3C;
+  border-color: #D24A3C;
 }
 .btn-gold {
 	color: #fff;
@@ -62,7 +57,7 @@
 
 /* MODAL */
 .modal-body img {
-	max-width: 100%;
+  max-width: 100%;
 }
 .modal-header {
 	font-family: 'Mountains of Christmas', cursive;
@@ -71,13 +66,32 @@
 
 
 /* SANTAS LIST */
-.santas-list button {
-	color: #000;
+.santas-list .wish {
+  list-style: none;
+  /*position: absolute;*/
 }
-.santas-list .present {
-	box-shadow: 0 0 4px #333;
+.wish .panel {
+  width: 300px;
 }
+.wish .panel>.panel-heading {
+  color: white;
+  font-weight: bold;
+}
+.wish .panel>.panel-body {
+  text-align: center;
+}
+.panel-blue { border-color: blue; }
+.panel-red { border-color: #992114; }
+.panel-green { border-color: #1A3112; }
+.panel-gold { border-color: #C5A436; }
+.panel-blue>.panel-heading { background-color: blue; }
+.panel-red>.panel-heading { background-color: #992114; }
+.panel-green>.panel-heading { background-color: #1A3112; }
+.panel-gold>.panel-heading { background-color: #C5A436; }
 
+.delete-btn {
+	margin: -7px;
+}
 
 /* SPARKLES */
 .sparkle {
@@ -136,7 +150,7 @@
 
 /*
 .debug {
-	display: none;
+  display: none;
 }
 */
 
