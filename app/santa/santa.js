@@ -2,8 +2,10 @@
     'use strict';
 
     var app = angular.module('santasHelper')
-        .controller('SantaController', function ($scope) {
+        .controller('SantaController', ['$scope', 'firebaseWrap', function ($scope, firebaseWrap) {
 
-        });
+        	$scope.data = firebaseWrap.data;
+
+        }]);
 
 }());
