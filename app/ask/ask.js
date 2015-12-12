@@ -23,7 +23,7 @@
       };
 
       $scope.wish = {
-        state: 'unopened',
+        state: 'unasked',
         color: color.getRandomColor(),
         answer: ''
       };
@@ -49,9 +49,9 @@
           size: 'sm'
         }).result.then(function (pass) {
           if(pass === 'password') {
-            $state.go("santa");
+            $state.go('santa');
           } else {
-            alert('Sorry we can\'t login you in! :(')
+            alert('Sorry we can\'t login you in! :(');
           }
         });
       };
@@ -60,8 +60,14 @@
         if (!$scope.wish.name || !$scope.wish.wish) {
           return; // don't ask for nothing
         }
-        $scope.data.$add($scope.wish);
-        $scope.message = 'Asking Santa ...';
+        $scope.wish.state = 'unopened';
+        $scope.data.$add($scope.wish).then(function (ref) {
+          // get the firebase object so we can watch the changes
+          // yeah, this is awful
+          var id = ref.key();
+          var itm = $scope.data.$getRecord(id);
+          $scope.wish = itm;
+        });
       };
     }])
     .controller('AskModalController', function ($scope, $uibModalInstance, wish) {

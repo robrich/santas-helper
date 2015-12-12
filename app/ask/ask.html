@@ -2,9 +2,6 @@
 
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-3">
-    <div style="text-align:right; padding-right: 10px">
-      <button class="btn btn-primary" ng-click="login()">Santa</button>
-    </div>
 
     <form ng-submit="newAsk()">
       <div class="form-group">
@@ -15,10 +12,12 @@
         <label for="wish">Wish</label>
         <input type="text" class="form-control" id="wish" ng-model="wish.wish">
       </div>
-      <button type="submit">Ask</button>
-      <div>{{message}}</div>
+      <button type="submit" class="btn btn-block btn-success">Ask Santa</button>
     </form>
 
+    <div ng-show="wish.state == 'unopened' || wish.state == 'opened'">
+      Asking santa
+    </div>
     <div ng-show="wish.state == 'answered'">
       <div ng-show="wish.answer == 'nice'">
         Santa says you're nice.  You get the wish.
@@ -29,6 +28,10 @@
     </div>
 
     <small class="debug"><pre>{{wish | json}}</pre></small>
+
+    <div style="position: fixed; bottom: 3px; right: 3px;">
+      <button class="btn btn-default" ng-click="login()">Santa</button>
+    </div>
   </div>
 </div>
 
