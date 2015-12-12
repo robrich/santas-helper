@@ -31,10 +31,14 @@
         $scope.message = 'Asking Santa ...';
       };
   }])
-      .controller('AskModalController', function ($scope) {
-		  $scope.ok = function () {
-			  $uibModalInstance.close();
-		  };
+      .controller('AskModalController', function ($scope, $uibModalInstance) {
+          $scope.wish = {
+              status: ''
+          }
+
+          $scope.ok = function () {
+              $uibModalInstance.close();
+          };
 
 		  $scope.cancel = function () {
 			  $uibModalInstance.dismiss('cancel');
