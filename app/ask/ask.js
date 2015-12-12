@@ -4,20 +4,20 @@
   var app = angular.module('santasHelper')
     .controller('AskController', ['$scope', 'firebaseWrap', 'color', '$uibModal', function ($scope, firebaseWrap, color, $uibModal) {
 
-        var modalInstance = $uibModal.open({
-            // animation: $scope.animationsEnabled,
-            templateUrl: 'app/ask/modal.html',
-            controller: 'AskAcceptedController',
-            size: 'sm'
-        });
+      var modalInstance = $uibModal.open({
+        // animation: $scope.animationsEnabled,
+        templateUrl: 'app/ask/modal.html',
+        controller: 'AskModalController',
+        size: 'sm'
+      });
 
-        modalInstance.result.finally(function (selectedItem) {
-            $scope.selected = selectedItem;
-        });
+      modalInstance.result.finally(function (selectedItem) {
+        $scope.selected = selectedItem;
+      });
 
       $scope.data = firebaseWrap.data;
 
-      $scope.newAsk = function() {
+      $scope.newAsk = function () {
         if (!$scope.username || !$scope.wish) {
           return; // don't ask for nothing
         }
@@ -36,9 +36,9 @@
               status: ''
           }
 
-          $scope.ok = function () {
-              $uibModalInstance.close();
-          };
+      $scope.ok = function () {
+        $uibModalInstance.close();
+      };
 
 		  $scope.cancel = function () {
 			  $uibModalInstance.dismiss('cancel');

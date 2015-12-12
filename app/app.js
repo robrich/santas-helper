@@ -1,6 +1,6 @@
 (function () {
   'use strict';
 
-  var app = angular.module('santasHelper', ['ui.router','firebase']);
+  var app = angular.module('santasHelper', ['ui.router', 'firebase']);
 
 }());
