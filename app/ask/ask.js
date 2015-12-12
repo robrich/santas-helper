@@ -9,7 +9,12 @@
           // animation: $scope.animationsEnabled,
           templateUrl: 'app/ask/modal.html',
           controller: 'AskModalController',
-          size: 'lg'
+          size: 'lg',
+          resolve: {
+            wish: function() {
+              return 'naughty';
+            }
+          }
         });
 
         modalInstance.result.finally(function (selectedItem) {
@@ -40,10 +45,8 @@
         $scope.message = 'Asking Santa ...';
       };
     }])
-    .controller('AskModalController', function ($scope, $uibModalInstance) {
-      $scope.wish = {
-        status: ''
-      };
+    .controller('AskModalController', function ($scope, $uibModalInstance, wish) {
+      $scope.wish = wish;
 
       $scope.ok = function () {
         $uibModalInstance.close();

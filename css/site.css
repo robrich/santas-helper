@@ -2,7 +2,29 @@
 	display: none;
 }
 
+/* COLORS */
+
+.red {
+	color: #992114;
+}
+.green {
+	color: #1A3112;
+}
+.gold {
+	color: #C5A436;
+}
+.white {
+	color; #fff;
+}
+
+.bg-red { background-color: #992114; }
+.bg-green { background-color: #1A3112; }
+.bg-gold { background-color: #C5A436; }
+
+
 /* MODAL */
 .modal-body img {
 	max-width: 100%;
 }
+
+
