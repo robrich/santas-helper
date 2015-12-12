@@ -2,7 +2,7 @@
   'use strict';
 
   var app = angular.module('santasHelper')
-    .controller('SantaController', ['$scope', 'firebaseWrap', function ($scope, firebaseWrap) {
+    .controller('SantaController', ['$scope', '$state', 'firebaseWrap', function ($scope, $state, firebaseWrap) {
 
       $scope.data = firebaseWrap.data;
 
@@ -25,7 +25,10 @@
         $scope.data.$remove(message);
       };
 
-    }]);
+      $scope.gotoWish = function () {
+        $state.go('ask');
+      };
 
+    }]);
 
 }());
