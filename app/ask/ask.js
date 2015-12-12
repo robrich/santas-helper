@@ -12,7 +12,7 @@
           size: 'lg',
           resolve: {
             wish: function() {
-              return 'naughty';
+              return 'nice';
             }
           }
         });

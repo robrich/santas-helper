@@ -17,6 +17,29 @@
 .bg-gold { background-color: #C5A436; }
 
 
+/* BUTTONS */
+.btn-black {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+.btn-black:hover {
+	color: #fff;
+	background-color: #333;
+	border-color: #333;
+}
+.btn-red {
+	color: #fff;
+	background-color: #992114;
+	border-color: #992114;
+}
+.btn-red:hover {
+	color: #fff;
+	background-color: #D24A3C;
+	border-color: #D24A3C;
+}
+
+
 /* MODAL */
 .modal-body img {
 	max-width: 100%;

@@ -18,7 +18,7 @@
       };
 
       $scope.removeMessage = function (message) {
-        data.$remove(message);
+        $scope.data.$remove(message);
       };
 
     }]);
