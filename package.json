@@ -1,0 +1,22 @@
+{
+  "name": "santas-helper",
+  "version": "1.0.0",
+  "description": "Team Hack for HolidayJS 2015",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robrich/santas-helper.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/robrich/santas-helper/issues"
+  },
+  "homepage": "https://github.com/robrich/santas-helper#readme",
+  "devDependencies": {
+  }
+}

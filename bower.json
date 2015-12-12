@@ -1,0 +1,18 @@
+{
+  "name": "santas-helper",
+  "description": "Team Hack for HolidayJS 2015",
+  "main": "index.js",
+  "authors": [
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/robrich/santas-helper",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
