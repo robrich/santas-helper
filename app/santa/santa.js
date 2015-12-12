@@ -1,11 +1,11 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    var app = angular.module('santasHelper')
-        .controller('SantaController', ['$scope', 'firebaseWrap', function ($scope, firebaseWrap) {
+  var app = angular.module('santasHelper')
+    .controller('SantaController', ['$scope', 'firebaseWrap', function ($scope, firebaseWrap) {
 
-        	$scope.data = firebaseWrap.data;
+      $scope.data = firebaseWrap.data;
 
-        }]);
+    }]);
 
 }());
