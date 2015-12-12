@@ -9,15 +9,25 @@
     <form ng-submit="newAsk()">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" ng-model="username">
+        <input type="text" class="form-control" id="name" ng-model="wish.name">
       </div>
       <div class="form-group">
         <label for="wish">Wish</label>
-        <input type="text" class="form-control" id="wish" ng-model="wish">
+        <input type="text" class="form-control" id="wish" ng-model="wish.wish">
       </div>
       <button type="submit">Ask</button>
       <div>{{message}}</div>
     </form>
+
+    <div ng-show="wish.state == 'answered'">
+      <div ng-show="wish.answer == 'nice'">
+        Santa says you're nice.  You get the wish.
+      </div>
+      <div ng-show="wish.answer == 'naughty'">
+        Santa says you're naughty.  You get coal.
+      </div>
+    </div>
+
+    <small><pre>{{wish | json}}</pre></small>
   </div>
 </div>
-
