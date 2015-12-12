@@ -16,12 +16,16 @@
         })
         .controller('AskModalController', function ($scope, $uibModalInstance) {
             $scope.ok = function () {
-                $uibModalInstance.close();
+              $uibModalInstance.close();
             };
 
             $scope.cancel = function () {
-                $uibModalInstance.dismiss('cancel');
+              $uibModalInstance.dismiss('cancel');
             };
+
+            $scope.wish = {
+            	status: 'accepted'
+            }
         })
         	
 
