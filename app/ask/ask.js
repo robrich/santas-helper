@@ -22,6 +22,31 @@
         });
       };
 
+      // TESTING
+      $scope.testNaughtyModal = function () {
+        $scope.wish = {
+          "answer": "naughty",
+          "color": "red",
+          "name": "Joe",
+          "state": "unopened",
+          "wish": "I want a new car",
+          "$id": "-K5NWAn7HpZxvJZXScDS",
+        };
+        $scope.openModal();
+      };
+      $scope.testNiceModal = function () {
+        $scope.wish = {
+          "answer": "nice",
+          "color": "red",
+          "name": "Joe",
+          "state": "unopened",
+          "wish": "I want a new car",
+          "$id": "-K5NWAn7HpZxvJZXScDS",
+        };
+        $scope.openModal();
+      };
+      // END TESTING
+
       $scope.wish = {
         state: 'unasked',
         color: color.getRandomColor(),
