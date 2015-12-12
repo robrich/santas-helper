@@ -2,7 +2,7 @@
   'use strict';
 
   var app = angular.module('santasHelper')
-    .controller('AskController', ['$scope', 'firebaseWrap', 'color', '$uibModal', function ($scope, firebaseWrap, color, $uibModal) {
+    .controller('AskController', ['$scope', 'firebaseWrap', 'color', '$state',function ($scope, firebaseWrap, color, $state) {
 
       var modalInstance = $uibModal.open({
         // animation: $scope.animationsEnabled,
@@ -16,6 +16,11 @@
       });
 
       $scope.data = firebaseWrap.data;
+
+      $scope.onSanta = function(){
+        console.log('on santa click');
+        $state.go("santa");
+      }
 
       $scope.newAsk = function () {
         if (!$scope.username || !$scope.wish) {
