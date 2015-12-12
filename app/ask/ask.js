@@ -88,8 +88,8 @@
         }
         $scope.wish.state = 'unopened';
         $scope.wish.answer = '';
-        $scope.color = color.getRandomColor();
-        $scope.location = location.getRandomLocation();
+        $scope.wish.color = color.getRandomColor();
+        $scope.wish.location = location.getRandomLocation();
         if ($scope.data['$id']) {
           // update
           $scope.data.$save($scope.wish);

@@ -5,7 +5,6 @@
 
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
-
     <form ng-submit="newAsk()">
       <div class="form-group">
         <label for="name">Name</label>
@@ -21,16 +20,8 @@
     <div ng-show="wish.state == 'unopened' || wish.state == 'opened'">
       Asking santa
     </div>
-    <div ng-show="wish.state == 'answered'">
-      <div ng-show="wish.answer == 'nice'">
-        Santa says you're nice.  You get the wish.
-      </div>
-      <div ng-show="wish.answer == 'naughty'">
-        Santa says you're naughty.  You get coal.
-      </div>
-    </div>
 
-    <small class="debug"><pre>{{wish | json}}</pre></small>
+    <small class="debug" ng-show="false"><pre>{{wish | json}}</pre></small>
 
     <div style="position: fixed; bottom: 3px; right: 3px;">
       <button class="btn btn-default" ng-click="login()">Santa</button>
@@ -38,5 +29,7 @@
   </div>
 </div>
 
+<div class="debug">
 <button class="btn btn-warning" type="button" ng-click="testNiceModal()">Open NICE Modal</button>
 <button class="btn btn-warning" type="button" ng-click="testNaughtyModal()">Open NAUGHTY Modal</button>
+</div>
