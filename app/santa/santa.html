@@ -3,7 +3,7 @@
 <div class="map">
 
 <ul class="santas-list">
-  <li class="wish" ng-repeat="message in data" class="white" ng-hide="message.state === 'answered' || message.state === 'unasked'">
+  <li class="wish" ng-repeat="message in data" class="white" ng-hide="message.state === 'answered' || message.state === 'unasked'" style="left: {{message.location.x}}px; top: {{message.location.y}}px">
     <div class="marker">
       <img src="img/present.png" ng-click="openMessage(message)" />
     </div>
