@@ -2,18 +2,18 @@
     <h3 class="modal-title">I'm a modal!</h3>
 </div>
 <div class="modal-body">
-    <ul>
-        <li ng-repeat="item in items">
-            <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
-        </li>
-    </ul>
-    Selected: <b>{{ selected.item }}</b>
+
+    <div ng-if="wish.status === 'accepted'">
+        accepted
+    </div>
 
 
-    <div class="accepted">
-        <h1>Santa says you'be been good, so here's your gift!!!</h1>
-        <p>Santa has partnered with Amazon to bring you <b><em>Santazon!!!</em></b> That means you'll be getting your gift in 2-3 business days (restrictions apply) wihtout needing to wait until Christmas!!!</p>
-        <img src="/img/yes.gif" alt="YES">
+    <div ng-if="wish.status === 'accepted'">
+        <div class="accepted">
+            <h1>Santa says you'be been good, so here's your gift!!!</h1>
+            <p>Santa has partnered with Amazon to bring you <b><em>Santazon!!!</em></b> That means you'll be getting your gift in 2-3 business days (restrictions apply) wihtout needing to wait until Christmas!!!</p>
+            <img src="/img/yes.gif" alt="YES">
+        </div>
     </div>
 </div>
 <div class="modal-footer">

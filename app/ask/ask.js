@@ -1,32 +1,53 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    var app = angular.module('santasHelper')
-        .controller('AskController', function ($scope, $uibModal) {
-        	var modalInstance = $uibModal.open({
-			      // animation: $scope.animationsEnabled,
-			      templateUrl: 'app/ask/modal.html',
-			      controller: 'AskModalController',
-			      size: 'sm'
-			    });
+  var app = angular.module('santasHelper')
+    .controller('AskController', ['$scope', 'firebaseWrap', 'color', '$state', '$uibModal', function ($scope, firebaseWrap, color, $state, $uibModal) {
 
-			    modalInstance.result.finally(function (selectedItem) {
-			      $scope.selected = selectedItem;
-			    });
-        })
-        .controller('AskModalController', function ($scope, $uibModalInstance) {
-            $scope.ok = function () {
-              $uibModalInstance.close();
-            };
+      var modalInstance = $uibModal.open({
+        // animation: $scope.animationsEnabled,
+        templateUrl: 'app/ask/modal.html',
+        controller: 'AskModalController',
+        size: 'sm'
+      });
 
-            $scope.cancel = function () {
-              $uibModalInstance.dismiss('cancel');
-            };
+      modalInstance.result.finally(function (selectedItem) {
+        $scope.selected = selectedItem;
+      });
 
-            $scope.wish = {
-            	status: 'accepted'
-            }
-        })
-        	
+      $scope.data = firebaseWrap.data;
+
+      $scope.onSanta = function () {
+        console.log('on santa click');
+        $state.go("santa");
+      };
+
+      $scope.newAsk = function () {
+        if (!$scope.username || !$scope.wish) {
+          return; // don't ask for nothing
+        }
+        $scope.data.$add({
+          name: $scope.username,
+          wish: $scope.wish,
+          state: 'unopened',
+          color: color.getRandomColor()
+        });
+        $scope.wish = '';
+        $scope.message = 'Asking Santa ...';
+      };
+    }])
+    .controller('AskModalController', function ($scope, $uibModalInstance) {
+      $scope.wish = {
+        status: ''
+      };
+
+      $scope.ok = function () {
+        $uibModalInstance.close();
+      };
+
+      $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+      };
+    });
 
 }());
