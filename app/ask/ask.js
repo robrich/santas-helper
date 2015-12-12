@@ -2,17 +2,17 @@
   'use strict';
 
   var app = angular.module('santasHelper')
-    .controller('AskController', ['$scope', 'firebaseWrap', 'color', '$state', '$uibModal', function ($scope, firebaseWrap, color, $state, $uibModal) {
+    .controller('AskController', ['$scope', 'firebaseWrap', 'color', 'location', '$state', '$uibModal', function ($scope, firebaseWrap, color, location, $state, $uibModal) {
 
-      $scope.openModal = function() {
+      $scope.openModal = function () {
         var modalInstance = $uibModal.open({
           // animation: $scope.animationsEnabled,
           templateUrl: 'app/ask/modal.html',
           controller: 'AskModalController',
           size: 'lg',
           resolve: {
-            wish: function() {
-              return 'naughty';
+            wish: function () {
+              return $scope.wish
             }
           }
         });
@@ -22,9 +22,35 @@
         });
       };
 
+      // TESTING
+      $scope.testNaughtyModal = function () {
+        $scope.wish = {
+          "answer": "naughty",
+          "color": "red",
+          "name": "Joe",
+          "state": "unopened",
+          "wish": "I want a new car",
+          "$id": "-K5NWAn7HpZxvJZXScDS",
+        };
+        $scope.openModal();
+      };
+      $scope.testNiceModal = function () {
+        $scope.wish = {
+          "answer": "nice",
+          "color": "red",
+          "name": "Joe",
+          "state": "unopened",
+          "wish": "I want a new car",
+          "$id": "-K5NWAn7HpZxvJZXScDS",
+        };
+        $scope.openModal();
+      };
+      // END TESTING
+
       $scope.wish = {
         state: 'unasked',
         color: color.getRandomColor(),
+        location: location.getRandomLocation(),
         answer: ''
       };
 
@@ -48,7 +74,7 @@
           },
           size: 'sm'
         }).result.then(function (pass) {
-          if(pass === 'password') {
+          if (pass === 'password') {
             $state.go('santa');
           } else {
             alert('Sorry we can\'t login you in! :(');
@@ -61,14 +87,30 @@
           return; // don't ask for nothing
         }
         $scope.wish.state = 'unopened';
-        $scope.data.$add($scope.wish).then(function (ref) {
-          // get the firebase object so we can watch the changes
-          // yeah, this is awful
-          var id = ref.key();
-          var itm = $scope.data.$getRecord(id);
-          $scope.wish = itm;
-        });
+        $scope.wish.answer = '';
+        $scope.wish.color = color.getRandomColor();
+        $scope.wish.location = location.getRandomLocation();
+        if ($scope.data['$id']) {
+          // update
+          $scope.data.$save($scope.wish);
+        } else {
+          // add
+          $scope.data.$add($scope.wish).then(function (ref) {
+            // get the firebase object so we can watch the changes
+            // yeah, this is awful
+            var id = ref.key();
+            var itm = $scope.data.$getRecord(id);
+
+            $scope.wish = itm;
+          });
+        }
       };
+
+      $scope.$watch('wish', function () {
+        if ($scope.wish && $scope.wish.state && $scope.wish.state === 'answered' && $scope.wish.answer) {
+          $scope.openModal();
+        }
+      }, true);
     }])
     .controller('AskModalController', function ($scope, $uibModalInstance, wish) {
       $scope.wish = wish;
@@ -81,5 +123,4 @@
         $uibModalInstance.dismiss('cancel');
       };
     });
-
 }());

@@ -1,5 +1,14 @@
 .ng-cloak {
-	display: none;
+  display: none;
+}
+
+.block-center {
+	display: block;
+	margin: 0 auto;
+}
+
+img {
+	max-width: 100%;
 }
 
 /* COLORS */
@@ -11,30 +20,152 @@
 .white { color: #fff; }
 .black { color: #000; }
 
-.bg-blue { background-color: blue; }
-.bg-red { background-color: #992114; }
-.bg-green { background-color: #1A3112; }
-.bg-gold { background-color: #C5A436; }
+
+/* BUTTONS */
+.btn-black {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+.btn-black:hover {
+  color: #fff;
+  background-color: #333;
+  border-color: #333;
+}
+.btn-red {
+  color: #fff;
+  background-color: #992114;
+  border-color: #992114;
+}
+.btn-red:hover {
+  color: #fff;
+  background-color: #D24A3C;
+  border-color: #D24A3C;
+}
+.btn-gold {
+	color: #fff;
+	background-color: #C5A436;
+	border-color: #C5A436;
+	text-shadow: 1px 1px 3px #444;
+}
+.btn-gold:hover {
+	color: #fff;
+	background-color: #DCAB0A;
+	border-color: #DCAB0A;
+}
+.btn-green {
+	color: #fff;
+	background-color: #1A3112;
+	border-color: #1A3112;
+	text-shadow: 1px 1px 3px #444;
+}
+.btn-green:hover {
+	color: #fff;
+	background-color: #DCAB0A;
+	border-color: #DCAB0A;
+}
+
+.font-xmas {
+	font-family: 'Mountains of Christmas', cursive;
+}
 
 
 /* MODAL */
 .modal-body img {
-	max-width: 100%;
+  max-width: 100%;
+}
+.modal-header {
+	font-family: 'Mountains of Christmas', cursive;
+	font-weight: 700;
 }
 
 
 /* SANTAS LIST */
-.santas-list button {
-	color: #000;
+.santas-list .wish {
+  list-style: none;
+  position: absolute;
 }
-.santas-list .present {
-	box-shadow: 0 0 4px #333;
+.wish .panel {
+  width: 300px;
+}
+.wish .panel>.panel-heading {
+  color: white;
+  font-weight: bold;
+}
+.wish .panel>.panel-body {
+  text-align: center;
+}
+.panel-blue { border-color: blue; }
+.panel-red { border-color: #992114; }
+.panel-green { border-color: #1A3112; }
+.panel-gold { border-color: #C5A436; }
+.panel-blue>.panel-heading { background-color: blue; }
+.panel-red>.panel-heading { background-color: #992114; }
+.panel-green>.panel-heading { background-color: #1A3112; }
+.panel-gold>.panel-heading { background-color: #C5A436; }
+
+.delete-btn {
+	margin: -7px;
+}
+
+/* SPARKLES */
+.sparkle {
+  transition: all 0.25s ease;
+}
+
+
+/* SNOW -- http://codepen.io/NickyCDK/pen/AIonk */
+#snow{
+	background: none;
+	font-family: Androgyne;
+	background-image: url('http://www.wearewebstars.dk/codepen/img/s1.png'), url('http://www.wearewebstars.dk/codepen/img//s2.png'), url('http://www.wearewebstars.dk/codepen/img//s3.png');
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index:1;
+	-webkit-animation: snow 10s linear infinite;
+	-moz-animation: snow 10s linear infinite;
+	-ms-animation: snow 10s linear infinite;
+	animation: snow 10s linear infinite;
+}
+@keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-moz-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 400px 1000px, 200px 400px, 100px 300px;}
+}
+@-webkit-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-ms-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+
+
+/* CRAZY GRADIENT BG */
+.bg-gradient {
+
+	background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(35, 24, 82, 0.22) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top, rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+  background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(35, 24, 82, 0.22) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top, rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg, #670d10 0%,#092756 100%);
+  background: -o-radial-gradient(0% 100%, ellipse cover, rgba(35, 24, 82, 0.22) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top, rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg, #670d10 0%,#092756 100%);
+  background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(35, 24, 82, 0.22) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top, rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg, #670d10 0%,#092756 100%);
+  background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(35, 24, 82, 0.22) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom, rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg, #670d10 0%,#092756 100%);
 }
 
 
 /*
 .debug {
-	display: none;
+  display: none;
 }
 */
 
