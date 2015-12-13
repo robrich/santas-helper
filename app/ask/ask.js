@@ -129,6 +129,13 @@
     .controller('AskModalController', function ($scope, $uibModalInstance, wish) {
       $scope.wish = wish;
 
+      // Show ELF ?
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+      var randomNum = getRandomInt(1, 6);
+      $scope.easteregg = randomNum == 3;
+
       $scope.ok = function () {
         $uibModalInstance.close();
       };

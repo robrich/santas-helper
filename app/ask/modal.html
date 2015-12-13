@@ -19,9 +19,15 @@
         <h1 class="text-center red">Santa says you've been NICE!!!</h1>
     </div>
     <div class="modal-body">
-        <img style="width:49%;" src="img/happy-santa.png" alt="santa yes">
-        <img style="width:49%;" src="img/present-closed.png" alt="present">
-        <p style="margin-top:25px;">Santa has partnered with Amazon to bring you <b><em>Santazon!!!</em></b> That means you'll be getting your gift in 2-3 business days (restrictions apply) without needing to wait until Christmas!!!</p>
+        <div ng-if="easteregg === true">
+            <h3 class="text-center">You found the easter egg!!!!!!</h3>
+            <img ng-if="easteregg === true" style="width:100%;" src="img/yes.gif" alt="YES!!!!!">
+        </div>
+        <div ng-if="easteregg === false">
+            <img style="width:49%;" src="img/happy-santa.png" alt="santa yes">
+            <img style="width:49%;" src="img/present-closed.png" alt="present">
+            <p style="margin-top:25px;">Santa has partnered with Amazon to bring you <b><em>Santazon!!!</em></b> That means you'll be getting your gift in 2-3 business days (restrictions apply) without needing to wait until Christmas!!!</p>
+        </div>
 
     </div>
     <div class="modal-footer">
