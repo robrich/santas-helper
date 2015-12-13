@@ -1,11 +1,14 @@
-<h1 class="font-xmas text-center red" style="padding:1em 0 0;">Make a Wish!</h1>
-<h4 class="text-center">And find out instantly if you've been naughty or nice</h4>
+<div class="bg-gradient-red" style="min-height:100vh">
+  
+<div class="container">
+  
+<h1 class="font-xmas text-center white" style="padding:1em 0 0;">Make a Wish!</h1>
+<h4 class="text-center white">And find out instantly if you've been naughty or nice</h4>
 
 <img class="block-center img-responsive" src="img/elfs.gif" alt="Elfs">
 
 <div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-
+  <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
     <form ng-submit="newAsk()">
       <div class="form-group">
         <label for="name">Name</label>
@@ -34,4 +37,6 @@
 <div class="debug">
 <button class="btn btn-warning" type="button" ng-click="testNiceModal()">Open NICE Modal</button>
 <button class="btn btn-warning" type="button" ng-click="testNaughtyModal()">Open NAUGHTY Modal</button>
+</div>
+</div>
 </div>
