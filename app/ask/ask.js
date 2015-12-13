@@ -16,9 +16,23 @@
             }
           }
         });
+        
+//         {
+//   "answer": "",
+//   "color": "green",
+//   "name": "bilbo",
+//   "state": "opened",
+//   "wish": "dragon",
+//   "$id": "-K5NVVkqdqdXUPSmDrrN",
+//   "$priority": null
+// }
 
-        modalInstance.result.finally(function (selectedItem) {
-          $scope.selected = selectedItem;
+        modalInstance.result.finally(function () {
+          $scope.wish.answer="";
+          $scope.wish.wish = null;
+          $scope.wish.state = "unasked";
+          $scope.wish.color = color.getRandomColor();
+          $scope.wish.$save();
         });
       };
 
