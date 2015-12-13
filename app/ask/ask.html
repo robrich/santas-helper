@@ -1,7 +1,7 @@
 <h1 class="font-xmas text-center red" style="padding:1em 0 0;">Make a Wish!</h1>
 <h4 class="text-center">And find out instantly if you've been naughty or nice</h4>
 
-<img class="block-center" src="img/elfs.gif" alt="Elfs">
+<img class="block-center img-responsive" src="img/elfs.gif" alt="Elfs">
 
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
@@ -15,7 +15,8 @@
         <label for="wish">Wish</label>
         <input type="text" class="form-control" id="wish" placeholder="Ask Santa for a wish" ng-model="wish.wish">
       </div>
-      <button type="submit" class="btn btn-block btn-success">Ask Santa</button>
+      <button type="submit" class="btn btn-block btn-success" ng-show="wish.state=='unasked'">Ask Santa</button>
+            <alert type="success" ng-hide="wish.state=='unasked'">Your letter has been mailed to Santa.</alert>
     </form>
 
     <div ng-show="wish.state == 'unopened' || wish.state == 'opened'">
